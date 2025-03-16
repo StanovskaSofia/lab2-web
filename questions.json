@@ -1,0 +1,32 @@
+[
+    {
+        "question": "Де народилася Леся Українка?",
+        "options": ["Звягель", "Львів", "Київ", "Харків"],
+        "correctAnswer": 0,
+        "image": "city.svg" 
+    },
+    {
+        "question": "Коли у мене день народження?",
+        "options": ["15 серпня", "1 травня", "30 вересня", "21 березня"],
+        "correctAnswer": 1,
+        "image": "month.svg" 
+    },
+    {
+        "question": "Хто проживає на дні океану?",
+        "options": ["Ніхто", "Риби", "Не знаю", "Губка Боб"],
+        "correctAnswer": 3,
+        "image": "ocean.svg"
+    },
+    {
+        "question": "Яка найвища гора в світі?",
+        "options": ["Говерла", "Еверест", "Хом'як", "Не знаю, не міряв"],
+        "correctAnswer": 1,
+        "image": "mountain.svg" 
+    },
+    {
+        "question": "Який елемент має хімічний символ 'O'?",
+        "options": ["Золото", "Кисень", "Бром", "Калій"],
+        "correctAnswer": 1,
+        "image": "chemistry.svg"
+    }
+]

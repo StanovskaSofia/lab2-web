@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Тест</h1>
+        <div class="welcome-screen" id="welcomeScreen">
+            <h2>Ласкаво просимо до тесту!</h2>
+            <p>Будь ласка, введіть своє ім'я, щоб почати</p>
+            <input type="text" class="name-input" id="nameInput" placeholder="Ваше ім'я">
+            <button class="start-btn" id="startBtn">Почати тест</button>
+
+            <div class="previous-result" id="previousResult">
+                <h3>Ваш останній результат:</h3>
+                <p id="previousName"></p>
+                <p id="previousScore"></p>
+                <p id="previousDate"></p>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="navigation" id="navigation">
+            </div>
+            <div class="question-container" id="questionContainer">
+            </div>
+            <div class="buttons" id="controlButtons">
+                <button class="prev-btn" id="prevBtn">Попереднє питання</button>
+                <button type = "button" class="next-btn" id="nextBtn">Наступне питання</button>
+            </div>
+        </div>
+        <div class="result-container" id="resultContainer">
+            <h2>Результати</h2>
+            <p id="userName"></p>
+            <p id="score"></p>
+            <div class="server-status" id="serverStatus"></div>
+            <button class="start-btn" id="restartBtn">Почати знову</button>
+        </div>
+    </div>
+
+    <script src = "script.js">
+    
+    </script>
+    </body>
