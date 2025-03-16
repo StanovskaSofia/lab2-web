@@ -45,8 +45,6 @@ function init() {
         navButton.addEventListener('click', () => goToQuestion(i));
         navigationDiv.appendChild(navButton);
     }
-
-    checkPreviousResult();
 }
 
 function startQuiz() {
@@ -97,5 +95,64 @@ function loadQuestion(index) {
     });
 
     questionContainer.appendChild(optionsList);
+}
+
+function selectOption(questionIndex, optionIndex) {
+    userAnswers[questionIndex] = optionIndex;
+
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => option.classList.remove('selected'));
+
+    const selectedOption = document.querySelectorAll('.option')[optionIndex];
+    if (selectedOption) {
+        selectedOption.classList.add('selected');
+    }
+}
+
+function goToNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion(currentQuestionIndex);
+        updateNavigation();
+        updateButtons();
+    } else {
+        showResults();
+    }
+}
+
+function goToPrevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion(currentQuestionIndex);
+        updateNavigation();
+        updateButtons();
+    }
+}
+
+function goToQuestion(index) {
+    currentQuestionIndex = index;
+    loadQuestion(currentQuestionIndex);
+    updateNavigation();
+    updateButtons();
+}
+
+function updateNavigation() {
+    const navButtons = document.querySelectorAll('.nav-button');
+    navButtons.forEach((btn, index) => {
+        btn.classList.remove('active');
+        if (index === currentQuestionIndex) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+function updateButtons() {
+    prevBtn.style.visibility = currentQuestionIndex === 0 ? 'hidden' : 'visible';
+
+    if (currentQuestionIndex === questions.length - 1) {
+        nextBtn.textContent = 'Завершити';
+    } else {
+        nextBtn.textContent = 'Наступне питання';
+    }
 }
 
