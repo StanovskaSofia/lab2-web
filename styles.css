@@ -43,30 +43,6 @@ h1 {
 .start-btn:hover, .next-btn:hover, .prev-btn:hover, .submit-btn:hover {
     background-color: #0d1671;
 }
-
-.question-container {
-    margin-bottom: 20px;
-}
-.options {
-    list-style-type: none;
-    padding: 0;
-}
-.option {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.option.selected {
-    background-color: #8f91ea;
-}
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
 .navigation {
     display: flex;
     justify-content: center;
@@ -107,5 +83,37 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+}
+.result-container {
+    display: none;
+    text-align: center;
+}
+.result-container h2 {
+    color: #0d1671;
+}
+.question-image {
+    max-width: 100%;
+    max-height: 200px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 5px;
+}
+.previous-result {
+    background-color: #abb3ff;
+    border: 1px solid #d5dbff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    display: none;
+}
+.previous-result h3 {
+    margin-top: 0;
+    color: #333;
+}
+.server-status {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #666;
 }
 

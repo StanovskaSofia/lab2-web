@@ -32,6 +32,17 @@ let currentQuestionIndex = 0;
 let userName = "";
 let userAnswers = Array(questions.length).fill(null);
 
+function checkPreviousResult() {
+    const lastResult = localStorage.getItem('quizLastResult');
+    if (lastResult) {
+        const result = JSON.parse(lastResult);
+        previousName.textContent = `Ім'я: ${result.name}`;
+        previousScore.textContent = `Результат: ${result.score} з ${result.totalQuestions} правильних відповідей`;
+        previousDate.textContent = `Дата: ${new Date(result.date).toLocaleString()}`;
+        previousResult.style.display = 'block';
+    }
+}
+
 function init() {
     startBtn.addEventListener('click', startQuiz);
     prevBtn.addEventListener('click', goToPrevQuestion);
@@ -45,6 +56,8 @@ function init() {
         navButton.addEventListener('click', () => goToQuestion(i));
         navigationDiv.appendChild(navButton);
     }
+
+    checkPreviousResult();
 }
 
 function startQuiz() {
@@ -156,3 +169,57 @@ function updateButtons() {
     }
 }
 
+function saveResultToLocalStorage(result) {
+    localStorage.setItem('quizLastResult', JSON.stringify(result));
+}
+
+function sendResultToServer(result) {
+    fetch(jsonServerUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(result)
+    })
+        .then(response => response.json())
+        .then(data => console.log("Результат успішно відправлено:", data))
+        .catch(error => console.error("Помилка при відправці результату:", error));
+}
+
+function showResults() {
+    quizContainer.style.display = 'none';
+    resultContainer.style.display = 'block';
+
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+        if (answer === questions[index].correctAnswer) {
+            correctCount++;
+        }
+    });
+
+    userNameElement.textContent = `Ім'я: ${userName}`;
+    scoreElement.textContent = `Результат: ${correctCount} з ${questions.length} правильних відповідей`;
+
+    const result = {
+        name: userName,
+        score: correctCount,
+        totalQuestions: questions.length,
+        answers: userAnswers,
+        date: new Date().toISOString()
+    };
+
+    saveResultToLocalStorage(result);
+
+    sendResultToServer(result);
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    userAnswers = Array(questions.length).fill(null);
+
+    resultContainer.style.display = 'none';
+    welcomeScreen.style.display = 'block';
+    serverStatus.textContent = '';
+
+    checkPreviousResult();
+}

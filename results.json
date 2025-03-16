@@ -1,3 +1,40 @@
 {
-  "results": []
+  "results": [
+    {
+      "id": "3efc",
+      "name": "софія",
+      "score": 0,
+      "totalQuestions": 5,
+      "answers": [],
+      "date": "2025-03-16T20:59:40.313Z"
+    },
+    {
+      "id": "a12e",
+      "name": "софійка",
+      "score": 5,
+      "totalQuestions": 5,
+      "answers": [
+        0,
+        1,
+        3,
+        1,
+        1
+      ],
+      "date": "2025-03-16T21:00:11.705Z"
+    },
+    {
+      "id": "c111",
+      "name": "софіййцук",
+      "score": 2,
+      "totalQuestions": 5,
+      "answers": [
+        1,
+        1,
+        3,
+        3,
+        2
+      ],
+      "date": "2025-03-16T21:00:28.746Z"
+    }
+  ]
 }
